@@ -17,6 +17,7 @@ import 'package:helloworld/Screens/PharmacyScreens/pharmaUpdateProfile.dart';
 import 'package:helloworld/Screens/PharmacyScreens/pharmacistProfile.dart';
 import 'package:helloworld/Screens/PharmacyScreens/prescribedMedication.dart';
 import 'package:helloworld/Screens/option.dart';
+import 'package:helloworld/homePage.dart';
 import 'package:helloworld/resetPassword.dart';
 
 class RouteManager {
@@ -45,8 +46,10 @@ class RouteManager {
     switch (settings.name) {
       case home:
         return MaterialPageRoute(
-            builder: (context) =>
-                const Login() //Home(auth: null, firestore: null,),
+            builder: (context) => Home(
+                  auth: _auth,
+                  firestore: _firestore,
+                ) //Home(auth: null, firestore: null,),
             );
       case secondPage:
         return MaterialPageRoute(
@@ -72,7 +75,9 @@ class RouteManager {
         );
       case patientProfile:
         return MaterialPageRoute(
-          builder: (context) => const PatientProfile(),
+          builder: (context) => const PatientProfile(
+            email: '',
+          ),
         );
       case updatePatientProfile:
         return MaterialPageRoute(

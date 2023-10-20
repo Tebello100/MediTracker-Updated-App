@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\l224\\Downloads\\Hello-World (2)\\Hello-World\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
+            "outputFile": "C:\\Users\\l224\\MediTracker-Updated-App\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lo\\values-lo.xml",
             "map": [
                 {
                     "source": "C:\\Users\\l224\\.gradle\\caches\\transforms-3\\d714eaa2c80b314f42dc7811c8c8cfc4\\transformed\\jetified-play-services-basement-18.1.0\\res\\values-lo\\values.xml",

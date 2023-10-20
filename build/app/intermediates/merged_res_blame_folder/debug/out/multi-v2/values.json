@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\l224\\Downloads\\Hello-World (2)\\Hello-World\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\l224\\MediTracker-Updated-App\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\l224\\.gradle\\caches\\transforms-3\\d714eaa2c80b314f42dc7811c8c8cfc4\\transformed\\jetified-play-services-basement-18.1.0\\res\\values\\values.xml",
@@ -59,7 +59,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\l224\\Downloads\\Hello-World (2)\\Hello-World\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "source": "C:\\Users\\l224\\MediTracker-Updated-App\\build\\app\\generated\\res\\google-services\\debug\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -73,6 +73,25 @@
                         "startOffsets": "9188,9270,9374,9483,9603,9702",
                         "endColumns": "81,103,108,119,98,75",
                         "endOffsets": "9265,9369,9478,9598,9697,9773"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\l224\\MediTracker-Updated-App\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "176,821",
+                        "endLines": "7,16",
+                        "endColumns": "12,12",
+                        "endOffsets": "472,987"
+                    },
+                    "to": {
+                        "startLines": "136,141",
+                        "startColumns": "4,4",
+                        "startOffsets": "9849,10146",
+                        "endLines": "140,143",
+                        "endColumns": "12,12",
+                        "endOffsets": "10141,10310"
                     }
                 },
                 {
@@ -92,25 +111,6 @@
                         "endLines": "7,8,9,10,86,164,168,349,366,374",
                         "endColumns": "11,59,51,44,59,24,24,24,24,24",
                         "endOffsets": "339,399,451,496,5500,11625,11822,21515,22629,23022"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\l224\\Downloads\\Hello-World (2)\\Hello-World\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "176,821",
-                        "endLines": "7,16",
-                        "endColumns": "12,12",
-                        "endOffsets": "472,987"
-                    },
-                    "to": {
-                        "startLines": "136,141",
-                        "startColumns": "4,4",
-                        "startOffsets": "9849,10146",
-                        "endLines": "140,143",
-                        "endColumns": "12,12",
-                        "endOffsets": "10141,10310"
                     }
                 },
                 {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/Routes/routes.dart';
+import 'package:helloworld/services/prescriptionInstructions.dart';
 
 class Prescribe extends StatefulWidget {
   const Prescribe({Key? key}) : super(key: key);
@@ -13,6 +14,10 @@ class _PrescribeState extends State<Prescribe> {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController _instructionsController =
+        TextEditingController();
+    final TextEditingController _medicationsController =
+        TextEditingController();
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -51,6 +56,7 @@ class _PrescribeState extends State<Prescribe> {
                         fontWeight: FontWeight.bold),
                   ),
                   TextFormField(
+                    controller: _instructionsController,
                     decoration: const InputDecoration(
                       hintText: "Enter instructions",
                     ),
@@ -72,6 +78,7 @@ class _PrescribeState extends State<Prescribe> {
                         fontWeight: FontWeight.bold),
                   ),
                   TextFormField(
+                    controller: _medicationsController,
                     decoration:
                         const InputDecoration(hintText: "Enter medication"),
                     validator: (value) {
@@ -85,7 +92,19 @@ class _PrescribeState extends State<Prescribe> {
                     height: 20,
                   ),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        final result = await InstructionsDatabase()
+                            .addInstruction(
+                                instructions: _instructionsController.text);
+                        if (result.contains('success')) {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content:
+                                Text("Instruction(s) and Medication(s) added"),
+                            backgroundColor: Colors.redAccent,
+                          ));
+                        }
+                      },
                       child: const Text(
                         'Save & Add',
                         style: TextStyle(

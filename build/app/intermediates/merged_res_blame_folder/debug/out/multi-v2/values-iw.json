@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\l224\\Downloads\\Hello-World (2)\\Hello-World\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-iw\\values-iw.xml",
+            "outputFile": "C:\\Users\\l224\\MediTracker-Updated-App\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-iw\\values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\l224\\.gradle\\caches\\transforms-3\\0e002ebd80aab5d73b3eec6f793e7375\\transformed\\core-1.6.0\\res\\values-iw\\values-iw.xml",

@@ -1,8 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/Routes/routes.dart';
+import 'package:helloworld/services/database_service.dart';
 
-class PatientProfile extends StatelessWidget {
-  const PatientProfile({Key? key}) : super(key: key);
+class PatientProfile extends StatefulWidget {
+  const PatientProfile({Key? key, required this.email}) : super(key: key);
+  final String email;
+  @override
+  State<PatientProfile> createState() => _PatientProfileState();
+}
+
+class _PatientProfileState extends State<PatientProfile> {
+  String fullNames = '';
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
+  void getData() async {
+    fullNames = (await FirestoreDatabase().getUserPatient(widget.email))!;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,20 +43,20 @@ class PatientProfile extends StatelessWidget {
                   width: 200,
                   height: 150,
                 ),
-                const Row(
+                Row(
                   children: [
-                    Image(
+                    const Image(
                       image: AssetImage('Assets/Patient.jpg'),
                       width: 100,
                       height: 100,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Text(
-                      'Hello Tebello',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                      'Hello $fullNames!',
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),

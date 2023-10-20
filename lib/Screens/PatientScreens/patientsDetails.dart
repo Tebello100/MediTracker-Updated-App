@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/Routes/routes.dart';
 import 'package:helloworld/services/auth.dart';
+import 'package:helloworld/services/database_service.dart';
 
 class PatientsDetails extends StatefulWidget {
   final FirebaseAuth auth;
@@ -54,6 +55,7 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                     height: 90,
                   ),
                   TextFormField(
+                    controller: _namesController,
                     decoration: const InputDecoration(
                       errorStyle: TextStyle(
                         fontSize: 15,
@@ -76,6 +78,7 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                     height: 5,
                   ),
                   TextFormField(
+                    controller: _surnameController,
                     decoration: const InputDecoration(
                       errorStyle: TextStyle(
                         fontSize: 15,
@@ -98,6 +101,7 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                     height: 5,
                   ),
                   TextFormField(
+                    controller: _clinicNoController,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       errorStyle: TextStyle(
@@ -121,6 +125,7 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                     height: 5,
                   ),
                   TextFormField(
+                    controller: _mobileNumberController,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       errorStyle: TextStyle(
@@ -193,6 +198,7 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                     height: 10,
                   ),
                   TextFormField(
+                    controller: _password2Controller,
                     obscureText: true,
                     decoration: const InputDecoration(
                       errorStyle: TextStyle(
@@ -209,6 +215,10 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                       if (value == null || value.isEmpty) {
                         return "Please re-enter your password!";
                       }
+
+                      if (value != _password2Controller.text) {
+                        return "Passwords must match";
+                      }
                       return null;
                     },
                   ),
@@ -224,8 +234,23 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                           .createAccount(
                               email: _emailController.text,
                               password: _passwordController.text);
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.of(context).pushNamed(RouteManager.home);
+
+                      if (value!.contains('Succesful')) {
+                        final result = await FirestoreDatabase().addPatient(
+                          fullNames: _namesController.text,
+                          surname: _surnameController.text,
+                          clinicFileNo: _clinicNoController.text,
+                          mobileNumber: _mobileNumberController.text,
+                        );
+
+                        if (result.contains('success')) {
+                          Navigator.of(context).pushNamed(RouteManager.home);
+                        }
+
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(result),
+                          backgroundColor: Colors.redAccent,
+                        ));
                       }
                     },
                     child: const Text(

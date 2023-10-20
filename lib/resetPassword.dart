@@ -45,6 +45,10 @@ class _RestPasswordState extends State<ResetPassword> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Image(
+                  image: AssetImage("Assets/1logo.png"),
+                  height: 250,
+                ),
                 const SizedBox(
                   height: 50,
                 ),
