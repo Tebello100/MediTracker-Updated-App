@@ -9,11 +9,11 @@ class InstructionsDatabase {
           FirebaseFirestore.instance.collection("doctorsInstructions");
 
       await patients.doc().set({
-        'fullNames': instructions,
+        'instructions': instructions,
       });
       return 'success';
     } catch (error) {
-      return 'Error adding user';
+      return 'Error adding instructions';
     }
   }
 }

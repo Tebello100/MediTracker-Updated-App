@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helloworld/Routes/routes.dart';
 import 'package:helloworld/services/prescriptionInstructions.dart';
+import 'package:helloworld/services/prescriptionMedication.dart';
 
 class Prescribe extends StatefulWidget {
   const Prescribe({Key? key}) : super(key: key);
@@ -91,35 +92,26 @@ class _PrescribeState extends State<Prescribe> {
                   const SizedBox(
                     height: 20,
                   ),
-                  TextButton(
-                      onPressed: () async {
-                        final result = await InstructionsDatabase()
-                            .addInstruction(
-                                instructions: _instructionsController.text);
-                        if (result.contains('success')) {
-                          ScaffoldMessenger.of(context)
-                              .showSnackBar(const SnackBar(
-                            content:
-                                Text("Instruction(s) and Medication(s) added"),
-                            backgroundColor: Colors.redAccent,
-                          ));
-                        }
-                      },
-                      child: const Text(
-                        'Save & Add',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                      )),
-                  const SizedBox(
-                    height: 20,
-                  ),
                   OutlinedButton(
-                      onPressed: () {
+                      onPressed: () async {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.of(context)
-                              .pushNamed(RouteManager.doctorPage);
+                          final addInstruction = await InstructionsDatabase()
+                              .addInstruction(
+                                  instructions: _instructionsController.text);
+
+                          final addMedication = await MedicationDatabase()
+                              .addMedication(
+                                  medications: _medicationsController.text);
+
+                          if (addInstruction.contains('success') &&
+                              addMedication.contains('success')) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text(
+                                        "Instruction(s) and Medication(s) added")));
+                            Navigator.of(context)
+                                .pushNamed(RouteManager.doctorPage);
+                          }
                         }
                       },
                       child: const Text(
