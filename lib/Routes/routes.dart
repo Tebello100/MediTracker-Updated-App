@@ -76,7 +76,7 @@ class RouteManager {
       case patientProfile:
         return MaterialPageRoute(
           builder: (context) => const PatientProfile(
-            email: '',
+            clinicFileNo: '',
           ),
         );
       case updatePatientProfile:

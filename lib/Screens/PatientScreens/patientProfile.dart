@@ -1,27 +1,27 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/Routes/routes.dart';
 import 'package:helloworld/services/database_service.dart';
 
 class PatientProfile extends StatefulWidget {
-  const PatientProfile({Key? key, required this.email}) : super(key: key);
-  final String email;
+  const PatientProfile({Key? key, required this.clinicFileNo})
+      : super(key: key);
+  final String clinicFileNo;
   @override
   State<PatientProfile> createState() => _PatientProfileState();
 }
 
 class _PatientProfileState extends State<PatientProfile> {
-  String fullNames = '';
-
   @override
   void initState() {
     super.initState();
-    getData();
   }
 
-  void getData() async {
-    fullNames = (await FirestoreDatabase().getUserPatient(widget.email))!;
-    setState(() {});
-  }
+  String? fullNames;
+  String? surname;
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +53,29 @@ class _PatientProfileState extends State<PatientProfile> {
                     const SizedBox(
                       width: 20,
                     ),
-                    Text(
-                      'Hello $fullNames!',
-                      style: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
+                    StreamBuilder(
+                        stream: FirebaseAuth.instance.authStateChanges(),
+                        builder: (context, snapshot) {
+                          User user = FirebaseAuth.instance.currentUser!;
+                          final uid = user.uid;
+
+                          if (user != null) {
+                            CollectionReference users = FirebaseFirestore
+                                .instance
+                                .collection('patients');
+
+                            return FutureBuilder<DocumentSnapshot>(
+                                future: users.doc(uid).get(),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<DocumentSnapshot> snapshot) {
+                                  Map<String, dynamic>? data = snapshot.data
+                                      ?.data() as Map<String, dynamic>?;
+                                  return Text("Hello ${data?['username']}");
+                                });
+                          } else {
+                            return Text("Loading");
+                          }
+                        })
                   ],
                 ),
                 Column(
@@ -177,4 +195,32 @@ class _PatientProfileState extends State<PatientProfile> {
       ),
     );
   }
+
+  // Future getData() async {
+  //   User firebaseUser = FirebaseAuth.instance.currentUser!;
+
+  //   if (firebaseUser != null) {
+  //     String? uid = firebaseUser.email;
+  //     DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
+  //         .instance
+  //         .collection('patients')
+  //         .doc(uid)
+  //         .get();
+  //     if (snapshot.exists) {
+  //       Map<String, dynamic>? data = snapshot.data();
+  //       if (data != null) {
+  //         setState(() {
+  //           fullNames = data['fullNames'];
+  //           surname = data['surname'];
+  //         });
+  //       } else {
+  //         print("Document data was null");
+  //       }
+  //     } else {
+  //       print("Document does not exist on the database");
+  //     }
+  //   } else {
+  //     print('User is not logged in');
+  //   }
+  // }
 }

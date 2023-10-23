@@ -129,9 +129,9 @@
     },
     {
       "name": "js",
-      "rootUri": "file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.7",
+      "rootUri": "file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.4",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "2.16"
     },
     {
       "name": "lints",
@@ -165,9 +165,9 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.6",
+      "rootUri": "file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.5",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "2.18"
     },
     {
       "name": "sky_engine",
@@ -236,7 +236,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2023-10-20T10:30:07.944716Z",
+  "generated": "2023-10-23T10:04:08.937507Z",
   "generator": "pub",
   "generatorVersion": "3.1.4"
 }

@@ -25,15 +25,19 @@ class FirestoreDatabase {
   }
 
   Future<String?> getUserPatient(String clinicFileNo) async {
-    try {
-      final String uid = FirebaseAuth.instance.currentUser!.uid;
-      CollectionReference users =
-          FirebaseFirestore.instance.collection('patients');
-      final snapshot = await users.doc(clinicFileNo).get();
-      final data = snapshot.data() as Map<String, dynamic>;
-      return data['fullNames'];
-    } catch (error) {
-      return 'Error fetching user';
-    }
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    final User user = await _auth.currentUser!;
+    final uid = user.uid;
+
+    // try {
+    //   final String uid = FirebaseAuth.instance.currentUser!.uid;
+    //   CollectionReference users =
+    //       FirebaseFirestore.instance.collection('patients');
+    //   final snapshot = await users.doc(clinicFileNo).get();
+    //   final data = snapshot.data() as Map<String, dynamic>;
+    //   return data['fullNames'];
+    // } catch (error) {
+    //   return 'Error fetching user';
+    // }
   }
 }

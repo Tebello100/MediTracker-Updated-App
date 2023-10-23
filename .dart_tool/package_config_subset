@@ -71,9 +71,9 @@ http_parser
 file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2/
 file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2/lib/
 js
-2.19
-file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.7/
-file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.7/lib/
+2.16
+file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.4/
+file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.4/lib/
 lints
 2.12
 file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/lints-1.0.1/
@@ -95,9 +95,9 @@ path
 file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3/
 file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/path-1.8.3/lib/
 plugin_platform_interface
-2.19
-file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.6/
-file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.6/lib/
+2.18
+file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.5/
+file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.5/lib/
 source_span
 2.18
 file:///C:/Users/l224/AppData/Local/Pub/Cache/hosted/pub.dev/source_span-1.10.0/
