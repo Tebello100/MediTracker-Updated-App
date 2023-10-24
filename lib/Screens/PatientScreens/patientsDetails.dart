@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:helloworld/Routes/routes.dart';
 import 'package:helloworld/services/auth.dart';
 import 'package:helloworld/services/database_service.dart';
@@ -102,7 +103,12 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                   ),
                   TextFormField(
                     controller: _clinicNoController,
+                    maxLength: 10,
                     keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(10)
+                    ],
                     decoration: const InputDecoration(
                       errorStyle: TextStyle(
                         fontSize: 15,
@@ -126,6 +132,11 @@ class _PatientsDetailsState extends State<PatientsDetails> {
                   ),
                   TextFormField(
                     controller: _mobileNumberController,
+                    maxLength: 10,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(10)
+                    ],
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       errorStyle: TextStyle(

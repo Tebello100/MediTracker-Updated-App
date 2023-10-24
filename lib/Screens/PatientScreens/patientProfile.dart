@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/Routes/routes.dart';
+import 'package:helloworld/checkUser.dart';
 import 'package:helloworld/services/database_service.dart';
 
 class PatientProfile extends StatefulWidget {
@@ -22,6 +23,7 @@ class _PatientProfileState extends State<PatientProfile> {
   String? fullNames;
   String? surname;
   FirebaseAuth auth = FirebaseAuth.instance;
+  User? user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -53,28 +55,10 @@ class _PatientProfileState extends State<PatientProfile> {
                     const SizedBox(
                       width: 20,
                     ),
-                    StreamBuilder(
-                        stream: FirebaseAuth.instance.authStateChanges(),
-                        builder: (context, snapshot) {
-                          User user = FirebaseAuth.instance.currentUser!;
-                          final uid = user.uid;
-
-                          if (user != null) {
-                            CollectionReference users = FirebaseFirestore
-                                .instance
-                                .collection('patients');
-
-                            return FutureBuilder<DocumentSnapshot>(
-                                future: users.doc(uid).get(),
-                                builder: (BuildContext context,
-                                    AsyncSnapshot<DocumentSnapshot> snapshot) {
-                                  Map<String, dynamic>? data = snapshot.data
-                                      ?.data() as Map<String, dynamic>?;
-                                  return Text("Hello ${data?['username']}");
-                                });
-                          } else {
-                            return Text("Loading");
-                          }
+                    FutureBuilder<String?>(
+                        future: getFullNames(),
+                        builder: (context, AsyncSnapshot snapshot) {
+                          return Text(snapshot.data.toString());
                         })
                   ],
                 ),
