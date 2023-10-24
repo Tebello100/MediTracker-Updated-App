@@ -20,10 +20,29 @@ class _PatientProfileState extends State<PatientProfile> {
     super.initState();
   }
 
-  String? fullNames;
-  String? surname;
-  FirebaseAuth auth = FirebaseAuth.instance;
-  User? user = FirebaseAuth.instance.currentUser;
+  String? fullNames = '';
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<void> readPatientData() async {
+    try {
+      final patientId = FirebaseAuth.instance.currentUser!.uid;
+      DocumentSnapshot patientSnapshot =
+          await _firestore.collection('patients').doc(patientId).get();
+
+      if (patientSnapshot.exists) {
+        var data = patientSnapshot.data() as Map<String, dynamic>;
+        if (data != null) {
+          setState(() {
+            fullNames = data['mobileNumber'] as String;
+          });
+        } else {
+          print("user document does not exist");
+        }
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +74,10 @@ class _PatientProfileState extends State<PatientProfile> {
                     const SizedBox(
                       width: 20,
                     ),
-                    FutureBuilder<String?>(
-                        future: getFullNames(),
+                    FutureBuilder(
+                        future: readPatientData(),
                         builder: (context, AsyncSnapshot snapshot) {
-                          return Text(snapshot.data.toString());
+                          return Text('Hello $fullNames');
                         })
                   ],
                 ),
@@ -179,32 +198,4 @@ class _PatientProfileState extends State<PatientProfile> {
       ),
     );
   }
-
-  // Future getData() async {
-  //   User firebaseUser = FirebaseAuth.instance.currentUser!;
-
-  //   if (firebaseUser != null) {
-  //     String? uid = firebaseUser.email;
-  //     DocumentSnapshot<Map<String, dynamic>> snapshot = await FirebaseFirestore
-  //         .instance
-  //         .collection('patients')
-  //         .doc(uid)
-  //         .get();
-  //     if (snapshot.exists) {
-  //       Map<String, dynamic>? data = snapshot.data();
-  //       if (data != null) {
-  //         setState(() {
-  //           fullNames = data['fullNames'];
-  //           surname = data['surname'];
-  //         });
-  //       } else {
-  //         print("Document data was null");
-  //       }
-  //     } else {
-  //       print("Document does not exist on the database");
-  //     }
-  //   } else {
-  //     print('User is not logged in');
-  //   }
-  // }
 }

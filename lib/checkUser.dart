@@ -1,19 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-final firestore = FirebaseFirestore.instance;
-FirebaseAuth auth = FirebaseAuth.instance;
+// final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+// String fullNames = '';
+// String surname = '';
+// String clinicFileNo = '';
+// String mobileNumber = '';
 
-Future<String?> getFullNames() async {
-  final CollectionReference patients = firestore.collection('patients');
-  final String uid = auth.currentUser!.uid;
-  final result = await patients.doc(uid).get();
-
-  if (result.exists) {
-    final Map<String, dynamic>? data = result.data() as Map<String, dynamic>?;
-    final String? fullNames = data?['fullNames'] as String?;
-    return fullNames ?? null;
-  } else {
-    return null;
-  }
-}
+// Future<void> readPatientData() async{
+//   try{
+//     final userId = FirebaseAuth.instance.currentUser!.uid;
+//     DocumentSnapshot patientSnapshot = await _firestore.collection('patients').doc(userId).get();
+//   }
+// }
