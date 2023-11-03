@@ -35,11 +35,10 @@ class Auth {
     }
   }
 
-  Future<String?> signOut(
-      {required String email, required String password}) async {
+  Future<String?> signOut() async {
     try {
       await auth.signOut();
-      return "Succesful";
+      return "Successful";
     } on FirebaseAuthException catch (e) {
       return e.message;
     } catch (e) {

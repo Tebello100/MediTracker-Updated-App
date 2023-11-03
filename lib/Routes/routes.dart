@@ -75,8 +75,10 @@ class RouteManager {
         );
       case patientProfile:
         return MaterialPageRoute(
-          builder: (context) => const PatientProfile(
+          builder: (context) => PatientProfile(
             clinicFileNo: '',
+            auth: _auth,
+            firestore: _firestore,
           ),
         );
       case updatePatientProfile:

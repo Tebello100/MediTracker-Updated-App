@@ -24,7 +24,7 @@ class DoctorProfile extends StatelessWidget {
                 width: 200,
                 height: 150,
               ),
-              const Row(
+              Row(
                 children: [
                   Image(
                     image: AssetImage('Assets/Doctor.jpg'),
