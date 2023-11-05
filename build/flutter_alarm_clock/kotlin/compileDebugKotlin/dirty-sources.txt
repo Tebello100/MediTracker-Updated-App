@@ -1,0 +1,1 @@
+C:\Users\morit\AppData\Local\Pub\Cache\hosted\pub.dev\flutter_alarm_clock-0.1.1\android\src\main\kotlin\tk\sebastjanmevlja\flutter_alarm_clock\FlutterAlarmClockPlugin.kt

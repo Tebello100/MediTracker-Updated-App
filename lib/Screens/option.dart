@@ -30,6 +30,11 @@ class _OptionsState extends State<Options> {
                 colors: [Colors.red, Colors.white])),
         child: ListView(
           children: [
+            const Text('Sign in as',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                )),
             CarouselSlider(
                 items: [
                   Column(
@@ -61,7 +66,7 @@ class _OptionsState extends State<Options> {
                                   Navigator.of(context)
                                       .pushNamed(RouteManager.doctorPage);
                                 },
-                                child: Text('Click here'),
+                                child: const Text('Click here'),
                               ),
                             )
                           ],
@@ -96,7 +101,7 @@ class _OptionsState extends State<Options> {
                                   Navigator.of(context)
                                       .pushNamed(RouteManager.pharmacistPage);
                                 },
-                                child: Text('Click here'),
+                                child: const Text('Click here'),
                               ),
                             )
                           ],

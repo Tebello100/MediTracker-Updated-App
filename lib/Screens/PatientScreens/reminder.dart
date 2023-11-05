@@ -56,7 +56,10 @@ class Reminder extends StatelessWidget {
                         height: 30,
                       ),
                       OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushNamed(RouteManager.setAlarm);
+                        },
                         child: const Text(
                           "Set Reminder",
                           style: TextStyle(color: Colors.white, fontSize: 20),

@@ -5,7 +5,6 @@ import 'package:helloworld/Screens/DoctorsScreens/doctorProfile.dart';
 import 'package:helloworld/Screens/DoctorsScreens/patientsProfile.dart';
 import 'package:helloworld/Screens/DoctorsScreens/prescribeMedication.dart';
 import 'package:helloworld/Screens/DoctorsScreens/updateDoctorProfile.dart';
-import 'package:helloworld/Screens/Login.dart';
 import 'package:helloworld/Screens/PatientScreens/messages.dart';
 import 'package:helloworld/Screens/PatientScreens/patientProfile.dart';
 import 'package:helloworld/Screens/PatientScreens/patientsDetails.dart';
@@ -19,6 +18,8 @@ import 'package:helloworld/Screens/PharmacyScreens/prescribedMedication.dart';
 import 'package:helloworld/Screens/option.dart';
 import 'package:helloworld/homePage.dart';
 import 'package:helloworld/resetPassword.dart';
+import 'package:helloworld/searchPatient.dart';
+import 'package:helloworld/setAlarm.dart';
 
 class RouteManager {
   static const String home = "/"; //Login page
@@ -41,6 +42,8 @@ class RouteManager {
   static const String resetPassword = "/resetPassword";
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  static const String setAlarm = "/setAlarm";
+  static const String searchPatient = "/searchPatient";
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -124,6 +127,14 @@ class RouteManager {
       case resetPassword:
         return MaterialPageRoute(
           builder: (context) => const ResetPassword(),
+        );
+      // case setAlarm:
+      //   return MaterialPageRoute(
+      //     builder: (context) => const SetAlarm(),
+      //   );
+      case searchPatient:
+        return MaterialPageRoute(
+          builder: (context) => const SearchPatient(),
         );
       default:
         throw const FormatException("Route not found");

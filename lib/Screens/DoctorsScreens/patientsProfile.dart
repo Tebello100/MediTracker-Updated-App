@@ -32,6 +32,23 @@ class ViewProfile extends StatelessWidget {
                   OutlinedButton(
                       onPressed: () {
                         Navigator.of(context)
+                            .pushNamed(RouteManager.searchPatient);
+                      },
+                      child: const Text(
+                        "Search Patient's file",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: Colors.redAccent,
+                        shape: const StadiumBorder(),
+                        minimumSize: const Size.fromHeight(50),
+                      )),
+                  OutlinedButton(
+                      onPressed: () {
+                        Navigator.of(context)
                             .pushNamed(RouteManager.doctorPage);
                       },
                       child: const Text(

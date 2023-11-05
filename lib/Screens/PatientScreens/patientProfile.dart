@@ -1,12 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:helloworld/Routes/routes.dart';
-import 'package:helloworld/checkUser.dart';
 import 'package:helloworld/getFullNames.dart';
 import 'package:helloworld/services/auth.dart';
-import 'package:helloworld/services/database_service.dart';
 
 class PatientProfile extends StatefulWidget {
   const PatientProfile(

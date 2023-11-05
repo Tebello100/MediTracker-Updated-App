@@ -17,7 +17,7 @@ class GetFullNames extends StatelessWidget {
               snapshot.data!.data() as Map<String, dynamic>;
           return Text(data['fullNames']);
         }
-        return Text('Loading..');
+        return const Text('Loading..');
       }),
     );
   }
