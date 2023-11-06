@@ -1,22 +1,21 @@
 {
   "project_info": {
-    "project_number": "787306856188",
-    "firebase_url": "https://meditracker-f0535-default-rtdb.firebaseio.com",
-    "project_id": "meditracker-f0535",
-    "storage_bucket": "meditracker-f0535.appspot.com"
+    "project_number": "943032784928",
+    "project_id": "meditracker-app",
+    "storage_bucket": "meditracker-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:787306856188:android:ec523cd9060ffdce376179",
+        "mobilesdk_app_id": "1:943032784928:android:8ec03fa67c8ebfa63f8445",
         "android_client_info": {
-          "package_name": "Meditracker.mobile01"
+          "package_name": "com.example.helloworld"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA8oKTf5Icq9pO8iP19eU4OFUHkqeuYGZg"
+          "current_key": "AIzaSyCRYDsX7KsgDL4zZAzIsHXWotBlDN4JJ4E"
         }
       ],
       "services": {
