@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.example.helloworld"
+3    package="Meditracker.mobile01"
 4    android:versionCode="1"
 5    android:versionName="1.0.0" >
 6
@@ -191,7 +191,7 @@
 123-->[com.google.firebase:firebase-common:20.4.2] C:\Users\morit\.gradle\caches\transforms-3\ea353080f0ed0f134f2e817e4e83fdfe\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:23:9-28:39
 124            android:name="com.google.firebase.provider.FirebaseInitProvider"
 124-->[com.google.firebase:firebase-common:20.4.2] C:\Users\morit\.gradle\caches\transforms-3\ea353080f0ed0f134f2e817e4e83fdfe\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:24:13-77
-125            android:authorities="com.example.helloworld.firebaseinitprovider"
+125            android:authorities="Meditracker.mobile01.firebaseinitprovider"
 125-->[com.google.firebase:firebase-common:20.4.2] C:\Users\morit\.gradle\caches\transforms-3\ea353080f0ed0f134f2e817e4e83fdfe\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:25:13-72
 126            android:directBootAware="true"
 126-->[com.google.firebase:firebase-common:20.4.2] C:\Users\morit\.gradle\caches\transforms-3\ea353080f0ed0f134f2e817e4e83fdfe\transformed\jetified-firebase-common-20.4.2\AndroidManifest.xml:26:13-43

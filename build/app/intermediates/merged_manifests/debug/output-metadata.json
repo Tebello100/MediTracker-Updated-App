@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "com.example.helloworld",
+  "applicationId": "Meditracker.mobile01",
   "variantName": "debug",
   "elements": [
     {
